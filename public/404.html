@@ -1,0 +1,32 @@
+<style>
+    .loaderDiv {
+        z-index: 99999;
+        backdrop-filter: blur(2px);
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        position: fixed;
+        height: 100%;
+        width: 100%;
+        left: 0;
+        top: 0;
+    }
+
+    .pageLoader {
+        max-width: 50px;
+        margin: 0 auto;
+    }
+
+    img.loaderlogo {
+        max-width: 50px;
+    }
+</style>
+
+<script>
+    let url = window.location.href
+    let host = window.location.host
+    url = url.replace(`https://${host}`, '')
+    console.log("url", url)
+    console.log("host", host)
+    window.location.assign(`/?redirect=${url}`)
+</script>

@@ -25,7 +25,7 @@ const routes = [
   { url: "/dashboard", element: <Dashboard /> },
   { url: "/login", element: <Login /> },
   { url: "/article/:id", element: <ArticleDetail /> },
-  { url: "/", element: <Navigate to="/login" /> },
+  { url: "/", element: <Login /> },
   { url: "*", element: <NotFoundPage /> },
 ];
 

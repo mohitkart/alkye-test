@@ -8,6 +8,7 @@ import { toast } from "react-toastify";
 import { useDispatch, useSelector } from "react-redux";
 import {login_success} from "../actions/user";
 import { useNavigate } from "react-router-dom";
+import methodModel from "../methods/methods";
 
 export default function Login() {
     const [form, setForm] = useState({ email: '', password: '' })
@@ -16,12 +17,18 @@ export default function Login() {
     const user=useSelector(state=>state.user)
     const navigate=useNavigate()
     const dispatch=useDispatch()
+    const redirect=methodModel.getPrams('redirect')
 
     useEffect(()=>{
-        if(user.loggedIn){
-            navigate('/dashboard')
+        if(redirect){
+            navigate(redirect)
+        }else{
+            if(user.loggedIn){
+                navigate('/dashboard')
+            }
         }
-    },[user])
+        
+    },[user,redirect])
 
     const submit = () => {
         if (step == 1) {
