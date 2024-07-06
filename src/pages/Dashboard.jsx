@@ -56,7 +56,7 @@ export default function Dashboard() {
                         {articles.filter(itm=>itm.prompt=='Photography').map(item => {
                             return <>
                                 <div className="w-[240px] md:w-[350px] px-[10px] relative articleCard">
-                                    <img src={item.image_url} className="rounded-[16px] w-full object-cover	 h-[350px]" />
+                                    <img src={item.image_url} className="rounded-[16px] w-full object-cover h-[350px]" />
                                     <div className="absolute hidden w-full h-full p-[25px] overflow-auto bg-[#00000085] top-0 left-0">
                                         <h4 className="text-[16px] font-weight-medium mb-2">{item.title}</h4>
                                         <p className="text-[14px]">{item.short_description}</p>
@@ -82,8 +82,8 @@ export default function Dashboard() {
                     <Slider {...settings}>
                         {articles.filter(itm=>itm.prompt=='Learning').map(item => {
                             return <>
-                                <div className="w-[240px] md:w-[300px] px-[10px] relative articleCard">
-                                    <img src={item.image_url} className="rounded-[16px]" />
+                                <div className="w-[240px] md:w-[350px] px-[10px] relative articleCard">
+                                    <img src={item.image_url} className="rounded-[16px] w-full object-cover h-[350px]" />
                                     <div className="absolute hidden w-full h-full p-[25px] bg-[#00000085] top-0 left-0 overflow-auto">
                                         <h4 className="text-[16px] font-weight-medium mb-2">{item.title}</h4>
                                         <p className="text-[14px]">{item.short_description}</p>
