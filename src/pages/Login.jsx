@@ -104,7 +104,7 @@ export default function Login() {
                                 type="password"
                                 placeholder="Choose a password"
                                 value={form.password}
-                                minLength={8}
+                                minLength={6}
                                 required
                                 onChange={e => setForm({ ...form, password: e })}
                             />
