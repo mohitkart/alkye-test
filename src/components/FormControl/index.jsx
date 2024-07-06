@@ -14,7 +14,7 @@ const [eye,setEye]=useState(false)
 
 
             <span onClick={()=>setEye(!eye)}
-            className="material-symbols-outlined absolute top-[22px] right-[20px] text-[20px] cursor-pointer"
+            className="material-symbols-outlined absolute md:top-[22px] top-[15px] right-[20px] md:text-[20px] text-[18px] cursor-pointer"
             >{eye?'visibility':'visibility_off'}</span>
         </div>
         
