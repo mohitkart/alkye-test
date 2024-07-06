@@ -57,7 +57,7 @@ export default function Dashboard() {
                             return <>
                                 <div className="w-[240px] md:w-[300px] px-[10px] relative articleCard">
                                     <img src={item.image_url} className="rounded-[16px]" />
-                                    <div className="absolute hidden w-full h-full p-[25px] bg-[#00000085] top-0 left-0">
+                                    <div className="absolute hidden w-full h-full p-[25px] overflow-auto bg-[#00000085] top-0 left-0">
                                         <h4 className="text-[16px] font-weight-medium mb-2">{item.title}</h4>
                                         <p className="text-[14px]">{item.short_description}</p>
                                         <Link to={`/article/${item.id}`} className="inline-block bg-[#fff] text-[#000] font-weight-medium px-[14px] py-[6px] text-[12px] rounded-[4px] mt-2">Read More</Link>
@@ -84,7 +84,7 @@ export default function Dashboard() {
                             return <>
                                 <div className="w-[240px] md:w-[300px] px-[10px] relative articleCard">
                                     <img src={item.image_url} className="rounded-[16px]" />
-                                    <div className="absolute hidden w-full h-full p-[25px] bg-[#00000085] top-0 left-0">
+                                    <div className="absolute hidden w-full h-full p-[25px] bg-[#00000085] top-0 left-0 overflow-auto">
                                         <h4 className="text-[16px] font-weight-medium mb-2">{item.title}</h4>
                                         <p className="text-[14px]">{item.short_description}</p>
                                         <Link to={`/article/${item.id}`} className="inline-block bg-[#fff] text-[#000] font-weight-medium px-[14px] py-[6px] text-[12px] rounded-[4px] mt-2">Read More</Link>
