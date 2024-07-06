@@ -1,7 +1,6 @@
 /*
  * @file: loalder.js
  * @description: Reducers and actions for store/manipulate loading  data
- * @date: 10 June 2020
  * @author: Mohit
  */
 

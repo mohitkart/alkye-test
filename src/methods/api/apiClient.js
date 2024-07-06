@@ -1,17 +1,15 @@
 /*
  * @file: index.js
  * @description: It Contain rest functions for api call .
- * @author: Poonam
+ * @author: Mohit Kumar
  */
 
 import axios from 'axios';
-import querystring from 'querystring';
 import { setAuthorizationToken } from '../auth';
 import { toast } from 'react-toastify';
 import loader from '../loader';
 import environment from '../../environment';
 import methodModel from '../methods';
-import { BlockBlobClient, AnonymousCredential } from '@azure/storage-blob';
 
 var config = {
     headers: { 'Content-Type': 'application/json' },
@@ -102,13 +100,10 @@ class ApiClient {
 
         let url = baseUrl + url1
         if (base) url = base + url1
-
-        let query = querystring.stringify(params);
-        url = query ? `${url}?${query}` : url;
         setAuthorizationToken(axios);
         return new Promise(function (fulfill, reject) {
             axios
-                .get(url, config)
+                .get(url, {...config,params:params})
                 .then(function (response) {
                     fulfill(response && response.data);
                 })
@@ -129,13 +124,10 @@ class ApiClient {
     static delete(url1, params = {}, base = '') {
         let url = baseUrl + url1
         if (base) url = base + url1
-
-        let query = querystring.stringify(params);
-        url = query ? `${url}?${query}` : url;
         setAuthorizationToken(axios);
         return new Promise(function (fulfill, reject) {
             axios
-                .delete(url, config)
+                .delete(url, {...config,params:params})
                 .then(function (response) {
                     fulfill(response && response.data);
                 })
@@ -193,77 +185,6 @@ class ApiClient {
                 });
         });
     }
-
-    static postFormFileData(url, params) {
-        let configupdate = {
-            headers: { 'Content-Type': 'multipart/form-data' },
-        };
-        url = baseUrl + url
-        setAuthorizationToken(axios);
-        return new Promise(function (fulfill, reject) {
-            var body = new FormData();
-            let oArr = Object.keys(params)
-            oArr.map(itm => {
-                body.append(itm, params[itm]);
-            })
-
-            axios
-                .post(url, body, configupdate)
-
-                .then(function (response) {
-                    fulfill(response && response.data);
-                })
-                .catch(function (error) {
-                    loader(false)
-                    if (error && error.response) {
-                        let eres = error.response;
-                        handleError(eres.data)
-                        fulfill(eres.data);
-                    } else {
-                        toast.error('Network Error');
-                        reject(error);
-                    }
-                });
-        });
-    }
-
-
-
-    static async azureUpload({ file }) {
-        return new Promise(function (fulfill, reject) {
-            var blobName = buildBlobName(file);
-            var login = `${sasurl}/${container}/${blobName}?${sasKey}`;
-            var blockBlobClient = new BlockBlobClient(login, new AnonymousCredential());
-            blockBlobClient.uploadBrowserData(file).then(res => {
-                console.log("res", res)
-                fulfill({ success: true, fileName: blobName })
-            }).catch(err => {
-                console.log("err", err)
-                fulfill({ success: false, message: err })
-            });
-        });
-    }
-
-    static async azureBlobDelete({ fileName }) {
-        const options = {
-            deleteSnapshots: 'include' // or 'only'
-          }
-        return new Promise(function (fulfill, reject) {
-            var blobName = fileName;
-            var login = `${sasurl}/${container}/${blobName}?${sasKey}`;
-            var blockBlobClient = new BlockBlobClient(login, new AnonymousCredential());
-            blockBlobClient.deleteIfExists(options).then(res=>{
-                fulfill({success:true})
-                console.log("delete res", res)
-            }).catch(err=>{
-                console.log("delete err", err)
-                fulfill({success:false,message: err})
-            })
-        });
-    }
-
-
-
 
  static async multiImageUpload(url, files,params={},key = 'file') {
     url = baseUrl + url
