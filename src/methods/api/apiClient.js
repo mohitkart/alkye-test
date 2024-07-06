@@ -31,19 +31,7 @@ const handleError = (err, hideError) => {
         if (!message) message = err.message
         if (!message) message = 'Server Error'
     }
-    if (!hideError) toast.error(message);
-}
-
-
-const sasKey = environment.sasKey
-const sasurl = environment.sasurl
-const container = environment.container
-
-
-function buildBlobName(file) {
-    var filename = file.name.substring(0, file.name.lastIndexOf('.'));
-    var ext = file.name.substring(file.name.lastIndexOf('.'));
-    return filename + '_' + Math.random().toString(16).slice(2) + ext;
+    // if (!hideError) toast.error(message);
 }
 
 class ApiClient {
@@ -56,14 +44,26 @@ class ApiClient {
             axios
                 .post(url, JSON.stringify(params), config)
                 .then(function (response) {
-                    fulfill(response && response.data);
+                    let res=response && response.data
+                    fulfill({
+                        data:res,
+                        status:response.status,
+                        statusText:response.statusText,
+                        success: true
+                    });
                 })
                 .catch(function (error) {
                     loader(false)
                     if (error && error.response) {
                         let eres = error.response;
-                        handleError(eres.data, hideError)
-                        fulfill({ ...eres.data, success: false });
+                        let res={
+                            data:eres.data,
+                            status:eres.status,
+                            statusText:eres.statusText,
+                            success: false
+                        }
+                        handleError(res, hideError)
+                        fulfill(res);
                     } else {
                         toast.error('Network Error')
                         reject(error);
@@ -80,14 +80,26 @@ class ApiClient {
             axios
                 .put(url, JSON.stringify(params), config)
                 .then(function (response) {
-                    fulfill(response && response.data);
+                    let res=response && response.data
+                    fulfill({
+                        data:res,
+                        status:response.status,
+                        statusText:response.statusText,
+                        success: true
+                    });
                 })
                 .catch(function (error) {
                     loader(false)
                     if (error && error.response) {
                         let eres = error.response;
-                        handleError(eres.data)
-                        fulfill(eres.data);
+                        let res={
+                            data:eres.data,
+                            status:eres.status,
+                            statusText:eres.statusText,
+                            success: false
+                        }
+                        handleError(res, hideError)
+                        fulfill(res);
                     } else {
                         toast.error('Network Error')
                         reject(error);
@@ -105,14 +117,26 @@ class ApiClient {
             axios
                 .get(url, {...config,params:params})
                 .then(function (response) {
-                    fulfill(response && response.data);
+                    let res=response && response.data
+                    fulfill({
+                        data:res,
+                        status:response.status,
+                        statusText:response.statusText,
+                        success: true
+                    });
                 })
                 .catch(function (error) {
                     loader(false)
                     if (error && error.response) {
                         let eres = error.response;
-                        handleError(eres.data, hidError)
-                        fulfill({ ...eres.data, success: false });
+                        let res={
+                            data:eres.data,
+                            status:eres.status,
+                            statusText:eres.statusText,
+                            success: false
+                        }
+                        handleError(res, hideError)
+                        fulfill(res);
                     } else {
                         toast.error('Network Error')
                         reject(error);
@@ -129,14 +153,26 @@ class ApiClient {
             axios
                 .delete(url, {...config,params:params})
                 .then(function (response) {
-                    fulfill(response && response.data);
+                    let res=response && response.data
+                    fulfill({
+                        data:res,
+                        status:response.status,
+                        statusText:response.statusText,
+                        success: true
+                    });
                 })
                 .catch(function (error) {
                     loader(false)
                     if (error && error.response) {
                         let eres = error.response;
-                        handleError(eres.data)
-                        fulfill(eres.data);
+                        let res={
+                            data:eres.data,
+                            status:eres.status,
+                            statusText:eres.statusText,
+                            success: false
+                        }
+                        handleError(res, hideError)
+                        fulfill(res);
                     } else {
                         toast.error('Network Error')
                         reject(error);
@@ -168,16 +204,27 @@ class ApiClient {
 
             axios
                 .post(url, body, config)
-
                 .then(function (response) {
-                    fulfill(response && response.data);
+                    let res=response && response.data
+                    fulfill({
+                        data:res,
+                        status:response.status,
+                        statusText:response.statusText,
+                        success: true
+                    });
                 })
                 .catch(function (error) {
                     loader(false)
                     if (error && error.response) {
                         let eres = error.response;
-                        handleError(eres.data)
-                        fulfill(eres.data);
+                        let res={
+                            data:eres.data,
+                            status:eres.status,
+                            statusText:eres.statusText,
+                            success: false
+                        }
+                        handleError(res, hideError)
+                        fulfill(res);
                     } else {
                         toast.error('Network Error')
                         reject(error);

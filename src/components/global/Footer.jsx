@@ -1,4 +1,5 @@
-import { Link } from "react-router-dom"
+import { useEffect } from "react"
+import { Link, useFetcher } from "react-router-dom"
 
 export default function Footer(){
 
@@ -21,6 +22,10 @@ export default function Footer(){
         {name:'Corporate Information',url:'/'},
     ]
 
+    useEffect(()=>{
+        window.scrollTo({ top: 0, behavior: 'auto' });
+    },[])
+
     return <>
     <div className="px-[30px] pt-[60px] md:pb-[40px] pb-[20px] bg-[#000]">
         <div className="mx-auto max-w-[1200px]">
@@ -32,7 +37,7 @@ export default function Footer(){
         <div className="grid gap-3 grid-cols-2 md:grid-cols-4 mb-[60px]">
             {menu.map(item=>{
                 return <>
-                <Link className="text-[#fff] font-medium text-[14px]" to={item.url}>{item.name}</Link>
+                <Link className="text-[#fff] font-extrabold text-[14px]" to={item.url}>{item.name}</Link>
                 </>
             })}
         </div>

@@ -1,0 +1,36 @@
+.articleCard{
+    &:hover{
+        .absolute{
+            display: block !important;
+        }
+    }
+}
+
+.dropdown{
+    display: inline-block;
+    position: relative;
+
+    .menus{
+        display: none;
+        border-radius: 4px;
+        min-width: 100px;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        font-size: 12px;
+        background-color: #fff;
+        color: #000;
+        > *{
+            display: inline-block;
+            padding: 7px 15px;
+            cursor: pointer;
+            font-weight: 500;
+        }
+    }
+
+    &:hover{
+        .menus{
+            display: block;
+        }
+    }
+}

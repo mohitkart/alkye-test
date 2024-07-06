@@ -5,10 +5,12 @@ import {
   Route,
   Navigate,
 } from "react-router-dom";
-import Home from "./pages/Home";
+import Dashboard from "./pages/Dashboard";
+import ArticleDetail from "./pages/ArticleDetail";
 import "react-toastify/dist/ReactToastify.css";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import "./scss/main.scss";
-import './index.css'
 import configureStoreProd from "./config/configureStore.prod";
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
@@ -20,8 +22,9 @@ import Login from "./pages/Login";
 const { persistor, store } = configureStoreProd();
 
 const routes = [
-  { url: "", element: <Home /> },
+  { url: "/dashboard", element: <Dashboard /> },
   { url: "/login", element: <Login /> },
+  { url: "/article/:id", element: <ArticleDetail /> },
   { url: "/", element: <Navigate to="/login" /> },
   { url: "*", element: <NotFoundPage /> },
 ];
