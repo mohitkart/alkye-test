@@ -16,6 +16,7 @@ export default function Dashboard() {
         infinite: false,
         speed: 300,
         slidesToShow: 1,
+        arrows:false,
         centerMode: false,
         variableWidth: true
     };

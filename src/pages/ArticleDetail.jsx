@@ -15,6 +15,7 @@ export default function ArticleDetail() {
 
     var settings = {
         dots: true,
+        arrows:false,
         infinite: false,
         speed: 300,
         slidesToShow: 1,

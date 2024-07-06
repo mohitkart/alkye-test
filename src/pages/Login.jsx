@@ -66,8 +66,8 @@ export default function Login() {
                         
                         </div>
                         </>:<></>}
-                        <div className="text-[16px]">STEP {step}</div>
-                        <h3 className="md:text-[30px] text-[23px] font-medium mb-[12px]">
+                        <div className="text-[14px]">STEP {step}</div>
+                        <h3 className="md:text-[30px] text-[23px] font-medium mb-[12px] leading-[32px]">
                             {step == 1 ? <>
                                 Enter your email address to continue
                             </> : <>
@@ -99,7 +99,7 @@ export default function Login() {
                                 </Button>
                             </div>
                         </> : <>
-                        <p className="text-[16px] mb-[12px]">Enter a password to create your account with </p>
+                        <p className="text-[14px] mb-[12px]">Enter a password to create your account with </p>
                             <FormControl
                                 type="password"
                                 placeholder="Choose a password"
@@ -110,8 +110,8 @@ export default function Login() {
                             />
 
                             <div className="mt-[20px] md:flex gap-3 items-start">
-                                <p className="text-[14px] md:mb-[0px] mb-[17px]">Use a minimum of 6 characters (case sensitive) with at least one number or special character.</p>
-                                <Button type="submit" className="min-w-[235px]" loading={loading}>
+                                <p className="text-[12px] md:mb-[0px] mb-[17px]">Use a minimum of 6 characters (case sensitive) with at least one number or special character.</p>
+                                <Button type="submit" className="min-w-[180px]" loading={loading}>
                                     Agree & Continue
                                 </Button>
                             </div>
