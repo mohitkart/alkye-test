@@ -13,18 +13,18 @@
 
   @font-face {
     font-family: Test;
-    src: url("./otf/TestSöhne-Buch.otf"),url("./woff2/test-soehne-buch.woff2");
+    src: url("./otf/TestSöhne-Kräftig.otf"),url("./woff2/TestSöhne-Kräftig.woff2");
     font-weight: 500;
   }
 
   @font-face {
     font-family: Test;
-    src: url("./otf/TestSöhne-Buch.otf"),url("./woff2/test-soehne-buch.woff2");
+    src: url("./otf/TestSöhne-Dreiviertelfett.otf"),url("./woff2/TestSöhne-Dreiviertelfett.woff2");
     font-weight: 600;
   }
 
   @font-face {
     font-family: Test;
-    src: url("./otf/TestSöhne-Buch.otf"),url("./woff2/test-soehne-buch.woff2");
+    src: url("./otf/TestSöhne-Dreiviertelfett.otf"),url("./woff2/TestSöhne-Dreiviertelfett.woff2");
     font-weight: 800;
   }
