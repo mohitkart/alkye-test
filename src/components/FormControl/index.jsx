@@ -7,10 +7,10 @@ const [eye,setEye]=useState(false)
     const className="border border-[#939393] md:px-[24px] px-[16px] md:py-[17px] py-[12px] md:text-[16px] text-[14px] w-full rounded-[5px]"
     return <>
         {type=='number'?<>
-        <input type="text" autocomplete="off" minLength={minLength} maxLength={maxLength} required={required} placeholder={placeholder} className={className} value={value} onChange={e=>onChange(methodModel.isNumber(e))} />
+        <input type="text" autoComplete="off" minLength={minLength} maxLength={maxLength} required={required} placeholder={placeholder} className={className} value={value} onChange={e=>onChange(methodModel.isNumber(e))} />
         </>:type=='password'?<>
         <div className="relative">
-            <input type={eye?'text':'password'} autocomplete="off" minLength={minLength} maxLength={maxLength} required={required} placeholder={placeholder} className={className} value={value} onChange={e=>onChange(e.target.value)} />
+            <input type={eye?'text':'password'} autoComplete="off" minLength={minLength} maxLength={maxLength} required={required} placeholder={placeholder} className={className} value={value} onChange={e=>onChange(e.target.value)} />
 
 
             <span onClick={()=>setEye(!eye)}
@@ -19,7 +19,7 @@ const [eye,setEye]=useState(false)
         </div>
         
         </>:<>
-        <input type={type} autocomplete="off" minLength={minLength} maxLength={maxLength} required={required} placeholder={placeholder} className={className} value={value} onChange={e=>onChange(e.target.value)} />
+        <input type={type} autoComplete="off" minLength={minLength} maxLength={maxLength} required={required} placeholder={placeholder} className={className} value={value} onChange={e=>onChange(e.target.value)} />
         </>}
     </>
 }

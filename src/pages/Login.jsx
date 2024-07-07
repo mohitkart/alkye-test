@@ -68,7 +68,7 @@ export default function Login() {
                         {step==2?<>
                         <div className="mb-4">
                             <span onClick={back} className="cursor-pointer inline-flex items-center gap-2">
-                            <span class="material-symbols-outlined text-[24px]">arrow_back</span> Back
+                            <span className="material-symbols-outlined text-[24px]">arrow_back</span> Back
                             </span>
                         
                         </div>
@@ -90,7 +90,7 @@ export default function Login() {
 
                 </div>
                 <div>
-                    <form onSubmit={e => { e.preventDefault(); submit() }} autocomplete="off">
+                    <form onSubmit={e => { e.preventDefault(); submit() }} autoComplete="off">
                         {step == 1 ? <>
                             <FormControl
                                 type="text"
@@ -106,7 +106,7 @@ export default function Login() {
                                 </Button>
                             </div>
                         </> : <>
-                        <p className="text-[14px] mb-[12px]">Enter a password to create your account with </p>
+                        <p className="text-[14px] mb-[12px] md:mt-0 mt-[25px]">Enter a password to create your account with </p>
                             <FormControl
                                 type="password"
                                 placeholder="Choose a password"
